@@ -46,6 +46,7 @@
     "typescript": "5.1.6",
     "uploadthing": "^5.2.0",
     "zod": "^3.21.4",
-    "link-preview-js": "^2.1.0"
+    "link-preview-js": "^2.1.0",
+    "encoding": "^0.1.13"
   }
 }
