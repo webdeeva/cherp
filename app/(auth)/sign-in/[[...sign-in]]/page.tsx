@@ -1,5 +1,5 @@
 import { SignIn } from "@clerk/nextjs";
-import './globals.css'; // Ensure this import is present if not already
+import './api/globals.css'; // Ensure this import is present if not already
 
 export default function Page() {
   return (
