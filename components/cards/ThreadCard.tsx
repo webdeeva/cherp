@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
+import { getLinkPreview } from "link-preview-js";
 import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
 
@@ -39,6 +40,20 @@ function ThreadCard({
   comments,
   isComment,
 }: Props) {
+  const [linkPreview, setLinkPreview] = useState(null);
+
+  useEffect(() => {
+    const fetchLinkPreview = async () => {
+      const urlMatch = content.match(/(https?:\/\/[^\s]+)/);
+      if (urlMatch) {
+        const preview = await getLinkPreview(urlMatch[0]);
+        setLinkPreview(preview);
+      }
+    };
+
+    fetchLinkPreview();
+  }, [content]);
+
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
@@ -68,6 +83,19 @@ function ThreadCard({
             </Link>
 
             <p className='mt-2 text-small-regular text-light-2'>{content}</p>
+
+            {linkPreview && (
+              <div className='link-preview'>
+                {linkPreview.images?.[0] && (
+                  <img src={linkPreview.images[0]} alt='Link preview' />
+                )}
+                <h3>{linkPreview.title}</h3>
+                <p>{linkPreview.description}</p>
+                <a href={linkPreview.url} target='_blank' rel='noopener noreferrer'>
+                  {linkPreview.url}
+                </a>
+              </div>
+            )}
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
