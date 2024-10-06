@@ -31,6 +31,17 @@ interface Props {
   isComment?: boolean;
 }
 
+interface LinkPreview {
+  url: string;
+  title?: string;
+  siteName?: string;
+  description?: string;
+  mediaType: string;
+  contentType?: string;
+  images: string[];
+  favicons: string[];
+}
+
 function ThreadCard({
   id,
   currentUserId,
@@ -42,14 +53,14 @@ function ThreadCard({
   comments,
   isComment,
 }: Props) {
-  const [linkPreview, setLinkPreview] = useState(null);
+  const [linkPreview, setLinkPreview] = useState<LinkPreview | null>(null);
 
   useEffect(() => {
     const fetchLinkPreview = async () => {
       const urlMatch = content.match(/(https?:\/\/[^\s]+)/);
       if (urlMatch) {
         const preview = await getLinkPreview(urlMatch[0]);
-        setLinkPreview(preview);
+        setLinkPreview(preview as LinkPreview); // Type assertion
       }
     };
 
