@@ -1,8 +1,9 @@
 import { SignIn } from "@clerk/nextjs";
+import './globals.css'; // Ensure this import is present if not already
 
 export default function Page() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div className="center-container">
       <SignIn />
     </div>
   );
