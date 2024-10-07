@@ -65,7 +65,7 @@ function PostThread({ userId }: Props) {
               </FormLabel>
               <FormControl className='no-focus border border-dark-4 bg-dark-3 text-light-1'>
                 <Editor
-                  apiKey='your-tinymce-api-key' // Replace with your actual TinyMCE API key
+                  apiKey='tjffqpuperb5vcom3et5kxvrk341pxrz11prewkhyl5bw5o7' // Replace with your actual TinyMCE API key
                   init={{
                     height: 500,
                     menubar: false,
@@ -77,7 +77,15 @@ function PostThread({ userId }: Props) {
                     toolbar: 'undo redo | formatselect | ' +
                     'bold italic backcolor | bullist numlist outdent indent | ' +
                     'removeformat | help',
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px; color: #FFFFFF; background-color: #1F1F1F; }',
+                    skin: 'oxide-dark',
+                    content_css: 'dark',
+                    setup: (editor) => {
+                      editor.on('init', () => {
+                        editor.getContainer().style.border = '1px solid #4B5563';
+                        editor.getContainer().style.borderRadius = '0.375rem';
+                      });
+                    }
                   }}
                   onEditorChange={(content) => field.onChange(content)}
                   value={field.value}
