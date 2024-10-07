@@ -25,11 +25,14 @@
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
+    "cors-anywhere": "^0.4.4",
+    "encoding": "^0.1.13",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
+    "link-preview-js": "^2.1.0",
     "lucide-react": "^0.260.0",
     "micro": "^10.0.1",
     "mongoose": "^7.3.4",
@@ -45,8 +48,6 @@
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6",
     "uploadthing": "^5.2.0",
-    "zod": "^3.21.4",
-    "link-preview-js": "^2.1.0",
-    "encoding": "^0.1.13"
+    "zod": "^3.21.4"
   }
 }

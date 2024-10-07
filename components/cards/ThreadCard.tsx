@@ -59,11 +59,12 @@ function ThreadCard({
     const fetchLinkPreview = async () => {
       const urlMatch = content.match(/(https?:\/\/[^\s]+)/);
       if (urlMatch) {
-        const preview = await getLinkPreview(urlMatch[0]);
+        const proxyUrl = `https://cors-anywhere.herokuapp.com/${urlMatch[0]}`;
+        const preview = await getLinkPreview(proxyUrl);
         setLinkPreview(preview as LinkPreview); // Type assertion
       }
     };
-
+  
     fetchLinkPreview();
   }, [content]);
 
@@ -105,8 +106,8 @@ function ThreadCard({
                 <h3>{linkPreview.title}</h3>
                 <p>{linkPreview.description}</p>
                 <a href={linkPreview.url} target='_blank' rel='noopener noreferrer'>
-                  {linkPreview.url}
-                </a>
+            {linkPreview.url}
+          </a>
               </div>
             )}
 
