@@ -194,6 +194,12 @@
 }
 
 .link-preview a {
-  color: #0070f3;
+  color: #857ffa;
   text-decoration: none;
+}
+.link-preview h3 {
+  margin: 10px 0;
+  color: #857ffa;
+  font-size: 20px;
+  font-weight: bold;
 }
