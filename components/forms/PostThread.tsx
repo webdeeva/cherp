@@ -78,7 +78,7 @@ function PostThread({ userId }: Props) {
                     'bold italic backcolor | bullist numlist outdent indent | ' +
                     'removeformat | help',
                     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px; color: #FFFFFF; background-color: #1F1F1F; }',
-                    skin: 'oxide-dark',
+                    skin: 'CUSTOM',
                     content_css: 'dark',
                     setup: (editor) => {
                       editor.on('init', () => {
